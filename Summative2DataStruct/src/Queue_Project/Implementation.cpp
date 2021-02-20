@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Data.h"
+#include <string>
 using namespace std;
 
 //*************************
@@ -30,16 +31,21 @@ IntQueue::~IntQueue()
 
 void IntQueue::enqueue(int num)
 {
-	if (isFull())
-		cout << "The queue is full.\n";
-	else
-	{
-		// Calculate the new rear position
-		rear = (rear + 1) % queueSize;
-		// Insert new item
-		queueArray[rear] = num;
-		// Update item count
-		numItems++;
+	try {
+		if (isFull()) 
+			errorMethod("Queue overflow exception");
+		else
+		{
+			// Calculate the new rear position
+			rear = (rear + 1) % queueSize;
+			// Insert new item
+			queueArray[rear] = num;
+			// Update item count
+			numItems++;
+		}
+	}
+	catch (runtime_error &errorName) {
+		cerr << "Runtime Error: " << errorName.what() << '\n';
 	}
 }
 
@@ -50,16 +56,21 @@ void IntQueue::enqueue(int num)
 
 void IntQueue::dequeue(int &num)
 {
-	if (isEmpty())
-		cout << "The queue is empty.\n";
-	else
-	{
-		// Move front
-		front = (front + 1) % queueSize;
-		// Retrieve the front item
-		num = queueArray[front];
-		// Update item count
-		numItems--;
+	try {
+		if (isEmpty())
+			//errorMethod("Queue underflow exception");
+		else
+		{
+			// Move front
+			front = (front + 1) % queueSize;
+			// Retrieve the front item
+			num = queueArray[front];
+			// Update item count
+			numItems--;
+		}
+	}
+	catch (runtime_error& errorName) {
+		cerr << "Runtime Error: " << errorName.what() << '\n';
 	}
 }
 //*********************************************
@@ -87,13 +98,13 @@ bool IntQueue::isEmpty()
 bool IntQueue::isFull()
 {
 	bool status;
-
 	if (numItems < queueSize)
 		status = false;
 	else
 		status = true;
 
 	return status;
+	
 }
 //*******************************************
 // Function clear resets the front and rear *
@@ -107,4 +118,9 @@ void IntQueue::clear()
 	numItems = 0;
 }
 
+// function for throwing runtime error
 
+void IntQueue::errorMethod(string errorName)
+{
+	throw(runtime_error(errorName));
+}
