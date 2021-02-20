@@ -29,4 +29,6 @@ int main()
 	cout << catchVar << endl;
 	stack.pop(catchVar);
 	cout << catchVar << endl;
+
+	cout << "hello world";
 }
