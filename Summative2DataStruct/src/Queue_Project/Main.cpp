@@ -6,7 +6,7 @@ using namespace std;
 int main()
 {
 	IntQueue iQueue(5);
-
+	cout << "Hello World" << endl;
 	cout << "Enqueuing 5 items...\n";
 	// Enqueue 5 items.
 	for (int x = 0; x < 5; x++)
