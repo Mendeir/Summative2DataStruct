@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Data.h"
+#include <string>
 using namespace std;
 
 //*************************
@@ -30,8 +31,9 @@ IntQueue::~IntQueue()
 
 void IntQueue::enqueue(int num)
 {
-	if (isFull())
-		cout << "The queue is full.\n";
+	
+	if (isFull()) 
+		errorMethod("Queue overflow exception"); // throw runtime error if queue is full
 	else
 	{
 		// Calculate the new rear position
@@ -41,6 +43,7 @@ void IntQueue::enqueue(int num)
 		// Update item count
 		numItems++;
 	}
+	
 }
 
 //*********************************************
@@ -50,8 +53,9 @@ void IntQueue::enqueue(int num)
 
 void IntQueue::dequeue(int &num)
 {
+	
 	if (isEmpty())
-		cout << "The queue is empty.\n";
+		errorMethod("Queue underflow exception"); // throw runtime error if queue is empty
 	else
 	{
 		// Move front
@@ -61,6 +65,7 @@ void IntQueue::dequeue(int &num)
 		// Update item count
 		numItems--;
 	}
+	
 }
 //*********************************************
 // Function isEmpty returns true if the queue *
@@ -72,8 +77,10 @@ bool IntQueue::isEmpty()
 	bool status;
 
 	if (numItems)
+		// return false if queue is not empty
 		status = false;
 	else
+		// return false if queue is empty
 		status = true;
 
 	return status;
@@ -87,13 +94,15 @@ bool IntQueue::isEmpty()
 bool IntQueue::isFull()
 {
 	bool status;
-
 	if (numItems < queueSize)
+		// return false if the queue is not full yet
 		status = false;
 	else
+		// return true if the queue is full
 		status = true;
 
 	return status;
+	
 }
 //*******************************************
 // Function clear resets the front and rear *
@@ -107,4 +116,8 @@ void IntQueue::clear()
 	numItems = 0;
 }
 
-
+// function for throwing runtime error
+void IntQueue::errorMethod(string errorName)
+{
+	throw(runtime_error(errorName));
+}
