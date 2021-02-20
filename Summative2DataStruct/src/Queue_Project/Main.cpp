@@ -6,35 +6,27 @@ using namespace std;
 
 int main()
 {
-	IntQueue iQueue(5);
-	cout << "Enqueuing 5 items...\n";
-	// Enqueue 5 items.
-	for (int x = 0; x < 5; x++)
-		iQueue.enqueue(x);
+	try
+	{
+		IntQueue iQueue(5);
+		int value;
 
-	// Attempt to enqueue a 6th item.
-	cout << "Now attempting to enqueue again...\n";
-	iQueue.enqueue(5);
-	
+		// Attempt to dequeue while empty
+		// cout << "Attempting to deque" << '\n';
+		// iQueue.dequeue(value);
+
+		cout << "Enqueuing 5 items...\n";
+		// Enqueue 5 items.
+		for (int x = 0; x < 5; x++)
+			iQueue.enqueue(x);
+
+		// Attempt to enqueue while full.
+		// cout << "Now attempting to enqueue again...\n";
+		// iQueue.enqueue(5);
+
+	}
+	catch (runtime_error &errorName) {
+		cerr << "Runtime error: " << errorName.what() << '\n'; 
+	}
 }
 
-/*
-IntQueue iQueue(5);
-	cout << "Enqueuing 5 items...\n";
-	// Enqueue 5 items.
-	for (int x = 0; x < 5; x++)
-		iQueue.enqueue(x);
-
-	// Attempt to enqueue a 6th item.
-	cout << "Now attempting to enqueue again...\n";
-	iQueue.enqueue(5);
-
-  // Deqeue and retrieve all items in the queue
-	cout << "The values in the queue were:\n";
-	while (!iQueue.Empty()
-	{
-		int value;
-		iQueue.dequeue(value);
-		cout << value << endl;
-	}
-*/

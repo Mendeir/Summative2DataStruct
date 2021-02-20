@@ -1,5 +1,9 @@
 #pragma once
 
+#include <string>
+
+using namespace std;
+
 class IntQueue
 {
 private:
@@ -17,5 +21,5 @@ public:
   void enqueue(int);
   void dequeue(int &);
   void clear();
-  void errorMethod(string errorName);
+  void errorMethod(string errorName); // throws runtime error
 };

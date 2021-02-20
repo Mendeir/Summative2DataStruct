@@ -31,22 +31,19 @@ IntQueue::~IntQueue()
 
 void IntQueue::enqueue(int num)
 {
-	try {
-		if (isFull()) 
-			errorMethod("Queue overflow exception");
-		else
-		{
-			// Calculate the new rear position
-			rear = (rear + 1) % queueSize;
-			// Insert new item
-			queueArray[rear] = num;
-			// Update item count
-			numItems++;
-		}
+	
+	if (isFull()) 
+		errorMethod("Queue overflow exception"); // throw runtime error if queue is full
+	else
+	{
+		// Calculate the new rear position
+		rear = (rear + 1) % queueSize;
+		// Insert new item
+		queueArray[rear] = num;
+		// Update item count
+		numItems++;
 	}
-	catch (runtime_error &errorName) {
-		cerr << "Runtime Error: " << errorName.what() << '\n';
-	}
+	
 }
 
 //*********************************************
@@ -56,22 +53,19 @@ void IntQueue::enqueue(int num)
 
 void IntQueue::dequeue(int &num)
 {
-	try {
-		if (isEmpty())
-			//errorMethod("Queue underflow exception");
-		else
-		{
-			// Move front
-			front = (front + 1) % queueSize;
-			// Retrieve the front item
-			num = queueArray[front];
-			// Update item count
-			numItems--;
-		}
+	
+	if (isEmpty())
+		errorMethod("Queue underflow exception"); // throw runtime error if queue is empty
+	else
+	{
+		// Move front
+		front = (front + 1) % queueSize;
+		// Retrieve the front item
+		num = queueArray[front];
+		// Update item count
+		numItems--;
 	}
-	catch (runtime_error& errorName) {
-		cerr << "Runtime Error: " << errorName.what() << '\n';
-	}
+	
 }
 //*********************************************
 // Function isEmpty returns true if the queue *
@@ -83,8 +77,10 @@ bool IntQueue::isEmpty()
 	bool status;
 
 	if (numItems)
+		// return false if queue is not empty
 		status = false;
 	else
+		// return false if queue is empty
 		status = true;
 
 	return status;
@@ -99,8 +95,10 @@ bool IntQueue::isFull()
 {
 	bool status;
 	if (numItems < queueSize)
+		// return false if the queue is not full yet
 		status = false;
 	else
+		// return true if the queue is full
 		status = true;
 
 	return status;
@@ -119,7 +117,6 @@ void IntQueue::clear()
 }
 
 // function for throwing runtime error
-
 void IntQueue::errorMethod(string errorName)
 {
 	throw(runtime_error(errorName));
