@@ -6,9 +6,9 @@ using namespace std;
 //*************************
 // Constructor            *
 //*************************
-IntQueue::IntQueue(int s)
+IntQueue::IntQueue (int s)
 {
-	queueArray = new int[s];
+	queueArray = new int [s];
 	queueSize = s;
 	front = -1;
 	rear = -1;
