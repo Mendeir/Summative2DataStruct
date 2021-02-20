@@ -31,9 +31,9 @@ int main() {
 
 	//Search for the number
 	if (isMember (arrayA, arraySize, searchNumber))
-		cout << "The value " << searchNumber << " is found in the array.";
+		cout << "The value " << searchNumber << " is found in the array." << '\n';
 	else
-		cout << "The value " << searchNumber << " is not found in the array.";
+		cout << "The value " << searchNumber << " is not found in the array." << '\n';
 }
 
 
