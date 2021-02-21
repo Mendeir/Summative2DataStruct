@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "Data.h"
 using namespace std;
 
@@ -6,9 +7,11 @@ using namespace std;
 // Constructor      *
 //*******************
 
-IntStack::IntStack(int size)
+
+template <typename givenDataType>
+GenericStack<givenDataType>::GenericStack(int size)
 {
-	stackArray = new int[size]; 
+	stackArray = new givenDataType[size]; 
 	stackSize = size; 
 	top = -1;
 }
@@ -16,8 +19,8 @@ IntStack::IntStack(int size)
 // Member function push pushes the argument onto  *
 // the stack.                                     *
 //*************************************************
-
-void IntStack::push(int num)
+template <typename givenDataType>
+void GenericStack<givenDataType>::push(givenDataType num)
 {
 	if (isFull())
 	{
@@ -34,8 +37,8 @@ void IntStack::push(int num)
 // of the stack off, and copies it into the variable *
 // passed as an argument.                            *
 //****************************************************
-
-void IntStack::pop(int &num)
+template <typename givenDataType>
+void GenericStack<givenDataType>::pop(givenDataType &num)
 {
 	if (isEmpty())
 	{
@@ -51,8 +54,9 @@ void IntStack::pop(int &num)
 // Member function isFull returns true if the stack *
 // is full, or false otherwise.                     *
 //***************************************************
+template <typename givenDataType>
 
-bool IntStack::isFull()
+bool GenericStack<givenDataType>::isFull()
 {
 	bool status;
 
@@ -66,7 +70,8 @@ bool IntStack::isFull()
 // Member function isEmpty returns true if the stack *
 // is empty, or false otherwise.                     *
 //****************************************************
-bool IntStack::isEmpty()
+template <typename givenDataType>
+bool GenericStack<givenDataType>::isEmpty()
 {
 	bool status;
 
@@ -78,4 +83,27 @@ bool IntStack::isEmpty()
 	return status;
 }
 
+
+//Explicit Instantiation
+//Constructor
+template GenericStack<int>::GenericStack(int size);
+template GenericStack<double>::GenericStack(int size);
+template GenericStack<float>::GenericStack(int size);
+template GenericStack<char>::GenericStack(int size);
+template GenericStack<string>::GenericStack(int size);
+
+// PUSH
+template void GenericStack<int>::push(int num);
+template void GenericStack<double>::push(double num);
+template void GenericStack<float>::push(float num);
+template void GenericStack<char>::push(char num);
+template void GenericStack<string>::push(string num);
+
+
+//POP
+template void GenericStack<int>::pop(int &num);
+template void GenericStack<double>::pop(double &num);
+template void GenericStack<float>::pop(float &num);
+template void GenericStack<char>::pop(char &num);
+template void GenericStack<string>::pop(string &num);
 
