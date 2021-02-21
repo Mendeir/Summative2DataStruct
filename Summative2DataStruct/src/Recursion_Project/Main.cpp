@@ -117,15 +117,12 @@ int getSearchNumber () {
 //Precondition: ArraySize is nonnegative and givenArray must already have values
 //Postcondition: Must return true if the value  is found and false if not
 bool isMember (int *givenArray, int arraySize, int searchNumber) {
-	if (givenArray [arraySize] == searchNumber) {
+	if (givenArray [arraySize] == searchNumber)
 		return true;
-	} else {
-		if (arraySize == 0) {
-			return false;
-		}
-		else {
-			isMember (givenArray, arraySize - 1, searchNumber);
-		}
-	}
+
+	if (arraySize == 0) 
+		return false;
+
+	isMember (givenArray, arraySize - 1, searchNumber);
 }
 
