@@ -1,11 +1,12 @@
 // This program demonstrates the IntStack class.
 #include <iostream>
+#include <string>
 #include "Data.h"
 using namespace std;
 
 int main()
 {
-	IntStack stack(5);
+	IntStack<int> stack(5);
 	int catchVar;
 
 	cout << "Pushing 5\n";

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "Data.h"
 using namespace std;
 
@@ -6,9 +7,11 @@ using namespace std;
 // Constructor      *
 //*******************
 
-IntStack::IntStack(int size)
+
+template <typename givenDataType>
+IntStack<givenDataType>::IntStack(givenDataType size)
 {
-	stackArray = new int[size]; 
+	stackArray = new givenDataType[size]; 
 	stackSize = size; 
 	top = -1;
 }
@@ -16,8 +19,8 @@ IntStack::IntStack(int size)
 // Member function push pushes the argument onto  *
 // the stack.                                     *
 //*************************************************
-
-void IntStack::push(int num)
+template <typename givenDataType>
+void IntStack<givenDataType>::push(givenDataType num)
 {
 	if (isFull())
 	{
@@ -34,8 +37,8 @@ void IntStack::push(int num)
 // of the stack off, and copies it into the variable *
 // passed as an argument.                            *
 //****************************************************
-
-void IntStack::pop(int &num)
+template <typename givenDataType>
+void IntStack<givenDataType>::pop(givenDataType &num)
 {
 	if (isEmpty())
 	{
@@ -51,8 +54,9 @@ void IntStack::pop(int &num)
 // Member function isFull returns true if the stack *
 // is full, or false otherwise.                     *
 //***************************************************
+template <typename givenDataType>
 
-bool IntStack::isFull()
+bool IntStack<givenDataType>::isFull()
 {
 	bool status;
 
@@ -66,7 +70,9 @@ bool IntStack::isFull()
 // Member function isEmpty returns true if the stack *
 // is empty, or false otherwise.                     *
 //****************************************************
-bool IntStack::isEmpty()
+template <typename givenDataType>
+
+bool IntStack<givenDataType>::isEmpty()
 {
 	bool status;
 

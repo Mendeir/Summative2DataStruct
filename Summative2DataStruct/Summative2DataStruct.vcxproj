@@ -19,7 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Recursion_Project\Main.cpp" />
+    <ClInclude Include="src\Stack_Project\Data.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Stack_Project\Implementation.cpp" />
+    <ClCompile Include="src\Stack_Project\Main.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

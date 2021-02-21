@@ -1,16 +1,20 @@
 #pragma once
+#include <string>
+using namespace std;
 
+template <typename givenDataType>
 class IntStack
 {
 private:
-	int *stackArray;
-	int stackSize;
-	int top;
+	givenDataType*stackArray;
+	givenDataType stackSize;
+	givenDataType top;
 
 public:
-	IntStack(int size);
-	void push(int num);
-	void pop(int &num);
+
+	IntStack(givenDataType size);
+	void push(givenDataType num);
+	void pop(givenDataType&num);
 	bool isFull();
 	bool isEmpty();
 };
