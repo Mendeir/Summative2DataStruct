@@ -9,7 +9,6 @@ int main()
 	cout << " ====================================\n";
 	cout << " |            INT  STACK            |\n";
 	cout << " ====================================\n";
-	cout << "\n";
 
 	GenericStack<int> intStack(2);
 	int intCatchVar;
@@ -26,11 +25,11 @@ int main()
 	intStack.pop(intCatchVar);
 	cout << "POPPING " << intCatchVar << "\n";
 
+	cout << '\n';
 	
 	cout << " =====================================\n";
 	cout << " |            DOUBLE  STACK          |\n";
 	cout << " =====================================\n";
-	cout << "\n";
 
 	GenericStack<double> doubleStack(5);
 	double doubleCatchVar;
@@ -47,11 +46,11 @@ int main()
 	doubleStack.pop(doubleCatchVar);
 	cout << "POPPING " << doubleCatchVar << "\n";
 
+	cout << '\n';
 	
 	cout << " ====================================\n";
 	cout << " |            CHAR  STACK           |\n";
 	cout << " ====================================\n";
-	cout << "\n";
 
 	GenericStack<char> charStack(5);
 	char charCatchVar;
@@ -68,11 +67,11 @@ int main()
 	charStack.pop(charCatchVar);
 	cout << "POPPING " << charCatchVar << "\n";
 	
+	cout << '\n';
 
 	cout << " =====================================\n";
 	cout << " |          STRING  STACK            |\n";
 	cout << " =====================================\n";
-	cout << "\n";
 
 	GenericStack<string> stringStack(5);
 	string stringCatchVar;
