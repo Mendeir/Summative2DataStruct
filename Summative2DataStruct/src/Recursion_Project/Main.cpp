@@ -48,7 +48,7 @@ int getArraySize () {
 		cin >> arraySize;
 
 		//Checks if input is correct 
-		if (arraySize < 0 || cin.fail()) {
+		if (arraySize <= 0 || cin.fail()) {
 			//Clear the stream and ignore infinite newlines
 			cin.clear ();
 			cin.ignore (numeric_limits<streamsize>::max (), '\n');
@@ -123,6 +123,6 @@ bool isMember (int *givenArray, int arraySize, int searchNumber) {
 	if (arraySize == 0) 
 		return false;
 
-	isMember (givenArray, arraySize - 1, searchNumber);
+	return isMember (givenArray, arraySize - 1, searchNumber);
 }
 
