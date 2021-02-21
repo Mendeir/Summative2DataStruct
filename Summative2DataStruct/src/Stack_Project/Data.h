@@ -7,14 +7,14 @@ class IntStack
 {
 private:
 	givenDataType*stackArray;
-	givenDataType stackSize;
-	givenDataType top;
+	int stackSize;
+	int top;
 
 public:
 
-	IntStack(givenDataType size);
+	IntStack(int size);
 	void push(givenDataType num);
-	void pop(givenDataType&num);
+	void pop(givenDataType &num);
 	bool isFull();
 	bool isEmpty();
 };

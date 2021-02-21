@@ -9,7 +9,7 @@ using namespace std;
 
 
 template <typename givenDataType>
-IntStack<givenDataType>::IntStack(givenDataType size)
+IntStack<givenDataType>::IntStack(int size)
 {
 	stackArray = new givenDataType[size]; 
 	stackSize = size; 
@@ -71,7 +71,6 @@ bool IntStack<givenDataType>::isFull()
 // is empty, or false otherwise.                     *
 //****************************************************
 template <typename givenDataType>
-
 bool IntStack<givenDataType>::isEmpty()
 {
 	bool status;
